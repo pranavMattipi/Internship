@@ -1,0 +1,358 @@
+.doctor-image3{
+  height: 420px;
+}
+
+/* Doctor Section */
+.container-doctor-section3 {
+  background-color: rgb(252, 251, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 5rem 0rem 3rem;
+  flex-wrap: wrap;
+}
+
+.doc-image3 {
+  margin-bottom: 0px;
+  margin-right:100px;
+
+}
+
+.p1 {
+  font-size: 1rem;
+  color: #111;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.p2 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #0a0a23;
+  margin: 0.5rem 0;
+  line-height: 1.2;
+}
+
+.p2 span {
+  color: linear-gradient(to top, #7b3fe4, #a07cf7);
+  font-weight: 900;
+}
+
+.p3,
+.p4 {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 1rem;
+  max-width: 600px;
+}
+
+.bookappointment {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background-color: #6c63ff;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+  transition: background 0.3s ease;
+}
+
+/* Target the Link inside the button */
+.bookappointment a {
+  color: white;
+  text-decoration: none;
+}
+
+.bookappointment:hover {
+  background-color: #5848e5;
+}
+.why-choose-us {
+  background-color: rgb(245, 243, 255);
+  padding: 0rem 6rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.why-choose-us .container {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.image-container {
+  flex: 1;
+  position: relative;
+  max-width: 500px;
+}
+
+.image-container .main-image {
+  width: 100%;
+  border-radius: 1rem;
+  transform: rotate(-2deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional circular badge (if implemented using pseudo-elements or overlay) */
+/* Add if you're using an absolute-positioned SVG or logo */
+
+.text-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+.section-label {
+  color: #4f46e5;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 1.2rem;
+  color: #0f172a;
+}
+
+.section-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.feature-icon {
+  font-size: 1.75rem;
+  padding: 0.8rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pink {
+  background-color: #fce4ec;
+  color: #d81b60;
+}
+
+.blue {
+  background-color: #e3f2fd;
+  color: #1e88e5;
+}
+
+.feature-content h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.3rem;
+}
+
+.feature-content p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.pricing-section {
+  background-color: #f8f9ff;
+  padding: 4rem 6rem;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.subtitle {
+  color: #4f46e5;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  color: #0f172a;
+}
+
+.pricing-cards {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 300px;
+  text-align: left;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s ease;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid transparent;
+  color: #0f172a;
+}
+
+.card:hover {
+  background: linear-gradient(to top, #7b3fe4, #a07cf7);
+  color: #ffffff;
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+  transition: color 0.3s ease;
+}
+
+.price span {
+  font-weight: 800;
+}
+
+.description {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.card li {
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.95rem;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: inherit;
+  font-size: 1.2rem;
+}
+
+/* Ensure all text turns white on hover */
+.card:hover h2,
+.card:hover .price,
+.card:hover .description,
+.card:hover li {
+  color: #ffffff;
+}
+
+.testimonial-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: rgb(244, 243, 255);
+}
+
+.section-label {
+  color: #6c63ff;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  color: #0f1b4c;
+  margin-bottom: 40px;
+}
+
+.testimonial-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  width: 300px;
+  text-align: left;
+  position: relative;
+}
+
+.stars {
+  color: #f7c948;
+  margin-bottom: 15px;
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.testimonial-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.user-name {
+  font-size: 1rem;
+  color: #0f1b4c;
+}
+
+.user-role {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.quote-icon {
+  color: #ccd;
+  font-size: 1.5rem;
+}
+
+.divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #bbb;
+  font-size: 1.2rem;
+  gap: 15px;
+}

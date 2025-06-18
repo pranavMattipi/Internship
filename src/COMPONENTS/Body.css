@@ -1,0 +1,298 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+   
+  top: 0;
+  z-index: 999;
+  background: linear-gradient(to top, #7b3fe4, #a07cf7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 700;
+}
+
+
+.logo {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 700;
+}
+.doctor-image1{
+  height: 400px;
+}
+
+/* Doctor Section */
+.container-doctor-section1 {
+  background-color: rgb(252, 251, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 5rem 0rem 3rem;
+  flex-wrap: wrap;
+}
+
+.doc-image1 {
+  margin-bottom: 0px;
+}
+
+.p1 {
+  font-size: 1rem;
+  color: #111;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.p2 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #0a0a23;
+  margin: 0.5rem 0;
+  line-height: 1.2;
+}
+
+.p2 span {
+  color: linear-gradient(to top, #7b3fe4, #a07cf7);
+  font-weight: 900;
+}
+
+.p3,
+.p4 {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 1rem;
+  max-width: 600px;
+}
+
+.bookappointment {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background-color: #6c63ff;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+  transition: background 0.3s ease;
+}
+
+/* Target the Link inside the button */
+.bookappointment a {
+  color: white;
+  text-decoration: none;
+}
+
+.bookappointment:hover {
+  background-color: #5848e5;
+}
+
+.stats {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.stats p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Services Section */
+.our-medical-services {
+  margin-top: 0px;
+  background-color:rgb(245, 243, 255);
+  width: 100%;
+  padding: 3rem 2rem;
+}
+
+.services-subheading {
+  color: #5b3df5;
+  font-weight: 500;
+  font-size: 35px;
+  margin-left: 20px;
+}
+
+.services-heading {
+  color: #0a1f44;
+  font-size: 60px;
+  font-weight: 900;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.all-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  justify-content: center;
+}
+
+.all-services > div {
+  flex: 0 0 280px;
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: background 0.6s ease, color 0.6s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  color: #1e293b;
+}
+
+.all-services > div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #7b3fe4, #a07cf7);
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.all-services > div:hover::before {
+  opacity: 1;
+}
+
+.all-services > div * {
+  position: relative;
+  z-index: 1;
+  transition: color 0.4s ease;
+}
+
+.all-services > div:hover * {
+  color: white !important;
+}
+
+.all-services img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background: #f0f4f8;
+  padding: 10px;
+}
+
+.all-services h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.all-services p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.all-services button {
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #1e40af;
+  cursor: pointer;
+}
+
+.all-services button a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.all-services > div:hover button a {
+  color: white;
+}
+
+/* About Us Section */
+.aboutus-section {
+  padding: 40px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0a0a23;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.aboutus-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.aboutus-image img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  margin-left: 100px;
+}
+
+.aboutus-text {
+  max-width: 650px;
+}
+
+.aboutus-text ul {
+  padding-left: 20px;
+}
+
+.aboutus-text li {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  list-style-type: disc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .aboutus-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .aboutus-text {
+    max-width: 100%;
+  }
+
+  .aboutus-text ul {
+    padding-left: 0;
+  }
+
+  .aboutus-text li {
+    list-style-position: inside;
+  }
+}
+
+
+
+
+
