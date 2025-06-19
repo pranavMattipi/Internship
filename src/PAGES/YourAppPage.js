@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-function YourAppPage({ appointments = [] }) {
-  const [appointmentList, setAppointmentList] = useState(appointments);
+function YourAppPage() {
+  const [appointmentList, setAppointmentList] = useState(() => {
+    const saved = localStorage.getItem('appointments');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('appointments', JSON.stringify(appointmentList));
+  }, [appointmentList]);
 
   const handleCancel = (srno) => {
     const confirmCancel = window.confirm('Are you sure you want to cancel this appointment?');
     if (confirmCancel) {
-      setAppointmentList(appointmentList.filter((appt) => appt.srno !== srno));
+      const updatedList = appointmentList.filter((appt) => appt.srno !== srno);
+      setAppointmentList(updatedList);
+      localStorage.setItem('appointments', JSON.stringify(updatedList));
     }
   };
 

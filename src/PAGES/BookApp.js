@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './BookApp.css';
-import bookappimg from '../assets/bookappimg.png';
 import bookappimg2 from '../assets/bookappimg2.png';
 import bookappimg3 from '../assets/bookappimg3.png';
 import bookap2 from '../assets/bookap2.png';
@@ -31,7 +30,12 @@ function BookApp({ setAppointments }) {
       date: formData.datetime,
     };
 
-    setAppointments(prev => [...prev, appointment]);
+    setAppointments(prev => {
+      const updated = [...prev, appointment];
+      localStorage.setItem('appointments', JSON.stringify(updated));
+      return updated;
+    });
+
     alert('✅ Appointment booked successfully!');
     navigate('/yourapppage');
   };
@@ -44,7 +48,6 @@ function BookApp({ setAppointments }) {
           <p className="p2">BOOK YOUR <span>APPOINTMENT</span> NOW</p>
           <p className="p3">Don’t wait to feel better. Schedule your appointment today and take the first step toward expert care and personalized treatment.</p>
           <p className="p4">Our compassionate team of healthcare professionals is here to help.</p>
-          <button className="bookappointment">Book Appointment</button>
         </div>
 
         <div className="doc-image4">
@@ -75,16 +78,16 @@ function BookApp({ setAppointments }) {
               </select>
             </div>
             <div className="input-row">
-  <label htmlFor="datetime" className="day-time">Select Appointment Date & Time</label>
-  <input
-    id="datetime"
-    name="datetime"
-    className="input-day-time"
-    type="datetime-local"
-    onChange={handleChange}
-    required
-  />
-</div>
+              <label htmlFor="datetime" className="day-time">Select Appointment Date & Time</label>
+              <input
+                id="datetime"
+                name="datetime"
+                className="input-day-time"
+                type="datetime-local"
+                onChange={handleChange}
+                required
+              />
+            </div>
             <textarea name="message" placeholder="Describe Your Problem..." rows="4" onChange={handleChange}></textarea>
             <button type="submit" className="book-btn">Book An Appointment →</button>
           </form>
@@ -101,7 +104,6 @@ function BookApp({ setAppointments }) {
           </div>
         </div>
 
-
         <div className="doctor-image-section2">
           <img src={bookappimg3} alt="Doctor" className="doctor-image-bookapp3" />
           <div className="emergency-box2">
@@ -112,10 +114,7 @@ function BookApp({ setAppointments }) {
             </div>
           </div>
         </div>
-        
       </div>
-
-      
     </>
   );
 }

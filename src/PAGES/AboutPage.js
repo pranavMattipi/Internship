@@ -76,6 +76,8 @@ function AboutPage() {
             className="main-image"
           />
         </div>
+
+        
         <div className="text-container">
           <p className="section-label"># Why Choose Us</p>
           <h2 className="section-title">Where Compassion<br />Meets Expertise.</h2>
