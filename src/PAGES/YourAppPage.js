@@ -1,27 +1,48 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function YourAppPage() {
-  const [appointmentList, setAppointmentList] = useState(() => {
-    const saved = localStorage.getItem('appointments');
-    return saved ? JSON.parse(saved) : [];
-  });
+  const [appointmentList, setAppointmentList] = useState([]);
 
   useEffect(() => {
-    localStorage.setItem('appointments', JSON.stringify(appointmentList));
-  }, [appointmentList]);
+    fetchAppointments();
+  }, []);
 
-  const handleCancel = (srno) => {
+  const fetchAppointments = async () => {
+    try {
+      const res = await axios.get('https://68558f031789e182b37ba664.mockapi.io/appointments');
+      setAppointmentList(res.data);
+    } catch (err) {
+      console.error('Error fetching appointments:', err);
+    }
+  };
+
+  const handleCancel = async (id) => {
     const confirmCancel = window.confirm('Are you sure you want to cancel this appointment?');
     if (confirmCancel) {
-      const updatedList = appointmentList.filter((appt) => appt.srno !== srno);
-      setAppointmentList(updatedList);
-      localStorage.setItem('appointments', JSON.stringify(updatedList));
+      try {
+        await axios.delete(`https://68558f031789e182b37ba664.mockapi.io/appointments/${id}`);
+        fetchAppointments(); // Refresh the list after deletion
+      } catch (err) {
+        console.error('Error deleting appointment:', err);
+      }
+    }
+  };
+
+  const formatDate = (dateString) => {
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date)) throw new Error('Invalid Date');
+      return date.toLocaleString();
+    } catch (err) {
+      return 'Invalid Date';
     }
   };
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>📋 Appointment Records</h2>
+    <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
+      <h2 style={{ marginBottom: '1rem' }}>📋 Appointment Records</h2>
+
       {appointmentList.length === 0 ? (
         <p>No appointments booked yet.</p>
       ) : (
@@ -33,34 +54,38 @@ function YourAppPage() {
             marginTop: '1rem',
             borderCollapse: 'collapse',
             textAlign: 'left',
+            backgroundColor: '#ffffff',
           }}
         >
           <thead style={{ backgroundColor: '#f8f9fa' }}>
             <tr>
-              <th>Sr. No</th>
+              <th>#</th>
               <th>Name</th>
               <th>Phone No.</th>
+              <th>Doctor</th>
               <th>Date & Time</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {appointmentList.map((appt, index) => (
-              <tr key={appt.srno}>
+              <tr key={appt.id}>
                 <td>{index + 1}</td>
                 <td>{appt.name}</td>
-                <td>{appt.phone}</td>
-                <td>{new Date(appt.date).toLocaleString()}</td>
+                <td>{appt.phoneNo}</td>
+                <td>{appt.doctor}</td>
+                <td>{formatDate(appt.date)}</td>
                 <td>
                   <button
-                    onClick={() => handleCancel(appt.srno)}
+                    onClick={() => handleCancel(appt.id)}
                     style={{
                       backgroundColor: '#ff4d4f',
                       color: 'white',
                       border: 'none',
-                      padding: '5px 10px',
+                      padding: '6px 12px',
                       borderRadius: '4px',
                       cursor: 'pointer',
+                      fontWeight: 'bold'
                     }}
                   >
                     Cancel

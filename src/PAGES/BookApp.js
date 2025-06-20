@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './BookApp.css';
 import bookappimg2 from '../assets/bookappimg2.png';
 import bookappimg3 from '../assets/bookappimg3.png';
 import bookap2 from '../assets/bookap2.png';
 
-function BookApp({ setAppointments }) {
+function BookApp() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false); // 🔄 Loading state
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,24 +22,41 @@ function BookApp({ setAppointments }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Disable button
 
-    const appointment = {
-      srno: Math.floor(Math.random() * 10000),
-      name: formData.name,
-      phone: formData.phone,
-      date: formData.datetime,
-    };
+    const isoDate = new Date(formData.datetime).toISOString(); // ✅ Convert to ISO
 
-    setAppointments(prev => {
-      const updated = [...prev, appointment];
-      localStorage.setItem('appointments', JSON.stringify(updated));
-      return updated;
-    });
+    try {
+      await axios.post('https://68558f031789e182b37ba664.mockapi.io/appointments', {
+        name: formData.name,
+        email: formData.email,
+        phoneNo: formData.phone,
+        doctor: formData.doctor,
+        date: isoDate,
+        problem: formData.message,
+        status: 'booked'
+      });
 
-    alert('✅ Appointment booked successfully!');
-    navigate('/yourapppage');
+      alert('✅ Appointment booked successfully!');
+      // ✅ Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        doctor: '',
+        datetime: '',
+        message: ''
+      });
+
+      navigate('/yourapppage');
+    } catch (error) {
+      console.error('Booking failed', error);
+      alert('❌ Booking failed! Try again later.');
+    } finally {
+      setLoading(false); // Re-enable button
+    }
   };
 
   return (
@@ -62,19 +81,19 @@ function BookApp({ setAppointments }) {
 
           <form className="appointment-form" onSubmit={handleSubmit}>
             <div className="input-row">
-              <input name="name" type="text" placeholder="Your Name" onChange={handleChange} required />
-              <input name="email" type="email" placeholder="Your Email" onChange={handleChange} required />
+              <input name="name" type="text" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
+              <input name="email" type="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
             </div>
             <div className="input-row">
-              <input name="phone" type="tel" placeholder="Phone Number" onChange={handleChange} required />
-              <select name="doctor" onChange={handleChange} required>
+              <input name="phone" type="tel" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required />
+              <select name="doctor" value={formData.doctor} onChange={handleChange} required>
                 <option value="">Select Doctor</option>
-                <option value="dr1">Dr. John Doe</option>
-                <option value="dr2">Dr. Harry</option>
-                <option value="dr3">Dr. Smith</option>
-                <option value="dr4">Dr. Mary</option>
-                <option value="dr5">Dr. Doe</option>
-                <option value="dr6">Dr. Sandy</option>
+                <option value="Dr. John Doe">Dr. John Doe</option>
+                <option value="Dr. Harry">Dr. Harry</option>
+                <option value="Dr. Smith">Dr. Smith</option>
+                <option value="Dr. Mary">Dr. Mary</option>
+                <option value="Dr. Doe">Dr. Doe</option>
+                <option value="Dr. Sandy">Dr. Sandy</option>
               </select>
             </div>
             <div className="input-row">
@@ -84,12 +103,15 @@ function BookApp({ setAppointments }) {
                 name="datetime"
                 className="input-day-time"
                 type="datetime-local"
+                value={formData.datetime}
                 onChange={handleChange}
                 required
               />
             </div>
-            <textarea name="message" placeholder="Describe Your Problem..." rows="4" onChange={handleChange}></textarea>
-            <button type="submit" className="book-btn">Book An Appointment →</button>
+            <textarea name="message" placeholder="Describe Your Problem..." rows="4" value={formData.message} onChange={handleChange}></textarea>
+            <button type="submit" className="book-btn" disabled={loading}>
+              {loading ? "Booking..." : "Book An Appointment →"}
+            </button>
           </form>
         </div>
 
