@@ -20,14 +20,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Body />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/services" element={<ServicePage />} />
-        <Route path="/book" element={<BookApp setAppointments={setAppointments} />} />
-        <Route path="/appointments" element={<YourAppPage appointments={appointments} />} />
-        <Route path="/medical-services" element={<MedicalServices />} />
-        
-        {/* Optional 404 page */}
-        <Route path="*" element={<h1 style={{ padding: '2rem', textAlign: 'center' }}>404 – Page Not Found</h1>} />
+        <Route path="/aboutpage" element={<AboutPage />} />
+        <Route path="/servicepage" element={<ServicePage />} />
+        <Route path="/bookapppage" element={<BookApp setAppointments={setAppointments} />} />
+        <Route path="/yourapppage" element={<YourAppPage appointments={appointments} />} />
+        <Route path="/medicalservices" element={<MedicalServices />} />
       </Routes>
       <Footer />
     </>
