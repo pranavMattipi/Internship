@@ -1,0 +1,82 @@
+/* Hero Section Styles */
+.doctor-image1 {
+  height: 400px;
+}
+
+.container-doctor-section1 {
+  background-color: rgb(252, 251, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 5rem 0rem 3rem;
+  flex-wrap: wrap;
+}
+
+.doc-image1 {
+  margin-bottom: 0px;
+}
+
+.p1 {
+  font-size: 1rem;
+  color: #111;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.p2 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #0a0a23;
+  margin: 0.5rem 0;
+  line-height: 1.2;
+}
+
+.p2 span {
+  background: linear-gradient(to top, #7b3fe4, #a07cf7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
+
+.p3,
+.p4 {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 1rem;
+  max-width: 600px;
+}
+
+.bookappointment {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background-color: #6c63ff;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+  transition: background 0.3s ease;
+}
+
+.bookappointment a {
+  color: white;
+  text-decoration: none;
+}
+
+.bookappointment:hover {
+  background-color: #5848e5;
+}
+
+.stats {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.stats p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}

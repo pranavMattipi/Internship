@@ -1,0 +1,26 @@
+.navbar {
+  position: sticky;
+   
+  top: 0;
+  z-index: 999;
+  background: linear-gradient(to top, #7b3fe4, #a07cf7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 700;
+}
+
+
+.logo {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 700;
+}

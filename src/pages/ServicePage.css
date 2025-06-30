@@ -1,0 +1,107 @@
+.container {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  font-family: 'Poppins', sans-serif;
+  flex-wrap: wrap;
+  background-color: #fdfdfd;
+}
+
+.left-panel {
+  flex: 2;
+  min-width: 300px;
+}
+
+.right-panel {
+  flex: 1;
+  min-width: 250px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #0a0a23;
+  margin-bottom: 20px;
+}
+
+.title span {
+  color: #6c63ff;
+}
+
+.services-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0a0a23;
+  margin-bottom: 20px;
+}
+
+.image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.text-content {
+  color: #444;
+  line-height: 1.7;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+   text-decoration: none;
+}
+
+.services-list {
+  
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.service-option {
+  text-decoration: none;
+  padding: 15px 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  background-color: #fff;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+   text-decoration: none; /* 👈 Removes underline */
+  color: #333;
+}
+.service-option a {
+  text-decoration: none;
+  color: #333;
+}
+
+.service-option a:hover {
+  color: white; /* or whatever hover color you use */
+}
+.service-option:hover {
+  background: linear-gradient(to top, #7b3fe4, #a07cf7);
+  color: white;
+}
+
+.service-option span {
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .services-title {
+    font-size: 1.3rem;
+  }
+}
