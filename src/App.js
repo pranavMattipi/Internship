@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+// FIXED 404 PAGE
 
 import Navbar from './components/Navbar';
 import Body from './components/Body';
