@@ -6,31 +6,33 @@ import './HeroSection.css';
 
 function HeroSection() {
   const [patientCount, setPatientCount] = useState(0);
-  const [expCount, setexpCount] = useState(0);
+  const [expCount, setExpCount] = useState(0);
 
   useEffect(() => {
     const target = 500;
-    const stepTime = 1;
     const interval = setInterval(() => {
       setPatientCount((prev) => {
-        if (prev < target) return prev + 1;
-        clearInterval(interval);
-        return prev;
+        if (prev >= target) {
+          clearInterval(interval);
+          return prev;
+        }
+        return prev + 1;
       });
-    }, stepTime);
+    }, 1);
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     const target = 100;
-    const stepTime = 5;
     const interval = setInterval(() => {
-      setexpCount((prev) => {
-        if (prev < target) return prev + 1;
-        clearInterval(interval);
-        return prev;
+      setExpCount((prev) => {
+        if (prev >= target) {
+          clearInterval(interval);
+          return prev;
+        }
+        return prev + 1;
       });
-    }, stepTime);
+    }, 5);
     return () => clearInterval(interval);
   }, []);
 
